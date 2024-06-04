@@ -18,7 +18,7 @@ include {getcoverage; WT_cov ; Trim_Stats; Reads_merge} from './modules/coverage
 include {Snpfilter; Summary_merge; Summary; Dataviz_Reportable_snps; DataViz_Novel_snps; Introns_merge } from './modules/final_snp'
 
 //modules for WGS
-include { trimReads; humanMap; noHumanReads; map3D7; mapToRefs_bwa; mapToRefs_bowtie2; fastqc_afterTrim; fastqc_beforeTrim; getDepth } from './modules/mapping.nf'
+include { map3D7; mapToFlankingGene_bowtie2; mapToFlankingGene_bwa; getDepth } from './modules/mapping.nf'
 include { trimmomaticTrim; humanMap_bwa; processBAM; makeGVCFs; extractMappedBAM; genomicsDBI } from './modules/gatk4_VCF.nf'
 
 //Import modules for geo classifier
@@ -366,9 +366,9 @@ workflow mapFlanking {
 
   noHumanReads(humanMap.out.sortedNoHumanBAM)
 
-  mapToRefs_bowtie2(noHumanReads.out.humanRemoveFASTQ)
+  mapToFlankingGene_bowtie2(noHumanReads.out.humanRemoveFASTQ)
 
-  mapToRefs_bwa(noHumanReads.out.humanRemoveFASTQ)
+  mapToFlankingGene_bwa(noHumanReads.out.humanRemoveFASTQ)
 
 }
 

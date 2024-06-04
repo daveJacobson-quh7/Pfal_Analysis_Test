@@ -199,7 +199,7 @@ process map3D7 {
 }
 
 
-process mapToRefs_bowtie2 {
+process mapToFlankingGene_bowtie2 {
     publishDir "${params.reportingFolder}", pattern: "*mapStats*", mode: "copy"
     publishDir "${params.mappingOutput}", pattern: "*bam", mode: "copy"
     label 'bioinformaticProcessing'
@@ -224,7 +224,7 @@ process mapToRefs_bowtie2 {
 
 }
 
-process mapToRefs_bwa {
+process mapToFlankingGene_bwa {
 
   // label 'mappingSoftware'
   label 'bioinformaticProcessing'
