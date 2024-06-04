@@ -23,18 +23,22 @@ myDate=$(date +"%Y-%m-%d_%H-%M-%S")
 
 #Run the complete pipeline - using both cpmp and pfs47
 
-# nextflow run mainCombo.nf -entry P_falciparum_GeoClassifier_complete_pipeline -profile singularity  -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt 
+# nextflow run main.nf -entry P_falciparum_GeoClassifier_complete_pipeline -profile singularity  -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt 
 
-# nextflow run mainCombo.nf -entry P_falciparum_GeoClassifier_useCleanReads -profile singularity  -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt 
+# nextflow run main.nf -entry P_falciparum_GeoClassifier_useCleanReads -profile singularity  -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt 
 
-# nextflow run mainCombo.nf -entry P_falciparum_MaRS -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt 
+# nextflow run main.nf -entry P_falciparum_MaRS -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt 
 
-nextflow run mainCombo.nf -entry P_falciparum_MaRS_GeoPrediction -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt --resume
+# nextflow run main.nf -entry P_falciparum_MaRS_GeoPrediction -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt --resume
 
-# nextflow run pfal_geoMain.nf  -entry P_falciparum_classifier_complete_pipeline -profile conda -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt --balkClassifier /scicomp/home-pure/yyr4/Desktop/balk_classifier/lkc-bisnp/lkc_bisnp-run --balkRegion_JLIB  /scicomp/home-pure/yyr4/Desktop/balk_classifier/lkc-bisnp/pf_combinedDhruvi_trainRegion.joblib.gz --balkCountry_JLIB  /scicomp/home-pure/yyr4/Desktop/balk_classifier/lkc-bisnp/pf_combinedDhruvi_trainCoumtry.joblib.gz --metadata $myDir/DMS18_metadata_Geo.xlsx -resume 
-#Run the complete pipeline - use only pfs47
-# nextflow run pfal_geoMain.nf  -entry P_falciparum_classifier_complete_pipeline -profile singularity -resume -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt --balkContinent_JLIB $myDir/REFERENCES/pfs47_1_continent_classifier.joblib.gz --balkCountry_JLIB $myDir/REFERENCES/pfs47_1_country_classifier.joblib.gz --balkRegion_JLIB $myDir/REFERENCES/pfs47_1_region_classifier.joblib.gz   --ampliseqRef $myDir/REFERENCES/Pfs47_ref.fasta --panelRefBarcode $myDir/REFERENCES/pfs47_barcode_allSamples.csv --snpPositions $myDir/REFERENCES/pfs47_snpPositions.csv --balkKeyFile $myDir/REFERENCES/balkKey_pfs47.txt --ampliconList $myDir/REFERENCES/pfs47_amplicon.txt
+# nextflow run main.nf -entry P_falciparum_GeoClassifier_useExistingVCF -profile singularity  -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt --metadata $myDir/sWGS_metadata.xlsx
 
-# nextflow run mainCombo.nf -entry P_falciparum_GeoClassifier_useExistingVCF -profile singularity  -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt --metadata $myDir/sWGS_metadata.xlsx
+# nextflow run main.nf -entry mapHuman_then3D7 -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt
+
+# nextflow run main.nf -entry just3D7 -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt
+
+# nextflow run main.nf -entry myDepth -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt -resume
+
+# nextflow run main.nf -entry optimizedGATK4_VCF -profile singularity -with-report nextflow_logFiles/$myDate\_report.html -with-trace nextflow_logFiles/$myDate\_trace.txt -resume
 
 
