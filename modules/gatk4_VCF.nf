@@ -119,7 +119,7 @@ process genomicsDBI {
   input:
   tuple val(samples), val(chromIn), path(vcfList), path(indexList)
 
-  // output:
+  output:
   // tuple val("gatk"), path("gatk.g.vc*"), emit: combinedGVCFs
   tuple val("${chromIn}"), path("chr${chromIn}_database"), emit: outDB
 
