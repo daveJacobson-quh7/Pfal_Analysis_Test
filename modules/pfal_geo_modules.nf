@@ -120,7 +120,7 @@ process trimReads {
 
    """
 
-   bbduk.sh  -Xmx${params.bbmergeRAM} ktrim=r k=27 mink=11 hdist=1 edist=0 ref=${params.adapters} qtrim=rl trimq=30 minlength=50 trimbyoverlap=t minoverlap=24 qin=33 in=${sample_files[0]} in2=${sample_files[1]} out=${sample_id}.R1.bbduk.fastq out2=${sample_id}.R2.bbduk.fastq stats=${sample_id}.stats.txt
+   bbduk.sh  -Xmx${params.bbmergeRAM} ktrim=r k=27 mink=11 hdist=1 edist=0 ref=${params.adapters} qtrim=rl trimq=20 minlength=50 trimbyoverlap=t minoverlap=24 qin=33 in=${sample_files[0]} in2=${sample_files[1]} out=${sample_id}.R1.bbduk.fastq out2=${sample_id}.R2.bbduk.fastq stats=${sample_id}.stats.txt
 
    gzip *.fastq
   
