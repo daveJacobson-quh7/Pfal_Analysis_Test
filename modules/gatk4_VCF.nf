@@ -20,7 +20,7 @@ process trimmomaticTrim {
 
 
 process humanMap_bwa{
- publishDir "${params.reportingFolder}", pattern: "*testHuman", mode: "copy"
+//  publishDir "${params.processingOut}", pattern: "*testHuman", mode: "copy"
   label 'optiGatk4'
 
   input:
@@ -42,7 +42,7 @@ process humanMap_bwa{
 
 
 process processBAM {
-//  publishDir "${params.reportingFolder}", pattern: "*testHuman", mode: "copy"
+//  publishDir "${params.processingOut}", pattern: "*testHuman", mode: "copy"
   label 'optiGatk4'
 
   input:
@@ -64,7 +64,7 @@ process processBAM {
 }
 
 process extractMappedBAM {
-//  publishDir "${params.reportingFolder}", pattern: "*testHuman", mode: "copy"
+//  publishDir "${params.processingOut}", pattern: "*testHuman", mode: "copy"
   label 'optiGatk4'
 
   input:
@@ -89,7 +89,7 @@ process extractMappedBAM {
 
 process makeGVCFs{
 
-  //  publishDir "${params.reportingFolder}", pattern: "*testHuman", mode: "copy"
+  //  publishDir "${params.processingOut}", pattern: "*testHuman", mode: "copy"
   label 'optiGatk4'
 
   input:
