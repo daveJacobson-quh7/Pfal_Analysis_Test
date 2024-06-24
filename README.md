@@ -46,5 +46,13 @@ Run analysis
 
 #### TBD
 
+### hrp2/3 deletions
+
+### plasmepsin 2 (copy number)
+
+### pfcoronin
+
+### mdr1 copy number
+
 
 
