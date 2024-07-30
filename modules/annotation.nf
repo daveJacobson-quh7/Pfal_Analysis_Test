@@ -36,17 +36,26 @@ process annotation {
       script:
       """
 
-      java -jar /usr/local/bin/snpEff/snpEff.jar -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} ${sample_id}_Freebayes.vcf > ${sample_id}_Freebayes_ann.vcf
-      java -jar /usr/local/bin/snpEff/snpEff.jar -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} ${sample_id}_gatk.vcf > ${sample_id}_gatk_ann.vcf
-      java -jar /usr/local/bin/snpEff/snpEff.jar -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} ${sample_id}_samtools.vcf > ${sample_id}_samtools_ann.vcf
-      java -jar /usr/local/bin/snpEff/snpEff.jar -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} ${sample_id}_vardict.vcf > ${sample_id}_vardict_ann.vcf
+      java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar  -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} -nolog ${sample_id}_Freebayes.vcf > ${sample_id}_Freebayes_ann.vcf
+      java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar  -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} -nolog ${sample_id}_gatk.vcf > ${sample_id}_gatk_ann.vcf
+      java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar  -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} -nolog ${sample_id}_samtools.vcf > ${sample_id}_samtools_ann.vcf
+      java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar  -c ${dbDir}/snpEff.config -hgvs1LetterAa -noShiftHgvs ${params.dbName} -nolog ${sample_id}_vardict.vcf > ${sample_id}_vardict_ann.vcf
+
 
 
 
       """
 }
 
+// grep -v "hsperfdata" ${sample_id}_Freebayes_ann.vcf > ${sample_id}_Freebayes_ann_clean.vcf
+//       grep -v "hsperfdata" ${sample_id}_gatk_ann.vcf > ${sample_id}_gatk_ann_clean.vcf
+//       grep -v "hsperfdata" ${sample_id}_samtools_ann.vcf > ${sample_id}_samtools_ann_clean.vcf
+//       grep -v "hsperfdata" ${sample_id}_vardict_ann.vcf > ${sample_id}_vardict_ann_clean.vcf
 
+//       cp ${sample_id}_Freebayes_ann_clean.vcf ${sample_id}_Freebayes_ann.vcf
+//       cp ${sample_id}_gatk_ann_clean.vcf ${sample_id}_gatk_ann.vcf 
+//       cp ${sample_id}_samtools_ann_clean.vcf ${sample_id}_samtools_ann.vcf 
+//       cp ${sample_id}_vardict_ann_clean.vcf ${sample_id}_vardict_ann.vcf
 
 process vartype {
     label 'nfNest'
