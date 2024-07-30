@@ -54,5 +54,11 @@ Run analysis
 
 ### mdr1 copy number
 
+### moi
+
+### Pfmdt and PfTetQ
+
+#### doxycycline resistance from this [paper](https://wwwnc.cdc.gov/eid/article/21/8/15-0524_article#:~:text=falciparum%20metabolite%20drug%20transporter%20gene,was%20later%20confirmed%20(7))
+
 
 
