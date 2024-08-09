@@ -69,9 +69,9 @@ process vartype {
 
     script:
         """
-        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar /usr/local/bin/snpEff/SnpSift.jar varType ${sample_id}_samtools_ann.vcf > ${sample_id}_samtools_vartype.vcf
-        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar /usr/local/bin/snpEff/SnpSift.jar varType ${sample_id}_Freebayes_ann.vcf > ${sample_id}_freeBayes_vartype.vcf
-        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar /usr/local/bin/snpEff/SnpSift.jar varType ${sample_id}_gatk_ann.vcf > ${sample_id}_HaplotypeCaller_vartype.vcf
-        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/snpEff.jar /usr/local/bin/snpEff/SnpSift.jar varType ${sample_id}_vardict_ann.vcf > ${sample_id}_vardict_vartype.vcf
+        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/SnpSift.jar  varType -noLog  ${sample_id}_samtools_ann.vcf > ${sample_id}_samtools_vartype.vcf
+        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/SnpSift.jar  varType -noLog  ${sample_id}_Freebayes_ann.vcf > ${sample_id}_freeBayes_vartype.vcf
+        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/SnpSift.jar  varType -noLog  ${sample_id}_gatk_ann.vcf > ${sample_id}_HaplotypeCaller_vartype.vcf
+        java -jar -XX:-UsePerfData /usr/local/bin/snpEff/SnpSift.jar  varType -noLog  ${sample_id}_vardict_ann.vcf > ${sample_id}_vardict_vartype.vcf
         """
 }
